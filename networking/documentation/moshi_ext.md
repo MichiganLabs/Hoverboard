@@ -14,7 +14,7 @@ Although loading an object is simple, loading a type that contains a generic can
 java.lang.ClassCastException: class com.squareup.moshi.LinkedHashTreeMap cannot be cast to class com.xxx.yyy.zzz (com.squareup.moshi.LinkedHashTreeMap...
 ``` 
 
-To ease this, the [`load` function]() may also take in a `Type` to define the generic. This will setup the parameterized types for you.
+To ease this, the [`load` function](https://github.com/MichiganLabs/Hoverboard/blob/a734085171b487e5388470be27d4c64618f3b259/networking/src/main/java/com/michiganlabs/hoverboard/data/Moshi.kt#L41) may also take in a `Type` to define the generic. This will setup the parameterized types for you.
 ```kotlin
 @JsonClass(generateAdapter = true)
 internal data class Player(
