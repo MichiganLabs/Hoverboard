@@ -4,12 +4,14 @@ import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 import com.squareup.moshi.JsonDataException
 import com.squareup.moshi.Moshi
-import org.junit.Assert.*
+import org.junit.Assert.assertEquals
+import org.junit.Assert.fail
 import org.junit.Test
 
 /**
  * Moshi extension tests
  */
+@Suppress("MagicNumber")
 class MoshiTest {
 
     private val moshi = Moshi.Builder().build()
@@ -47,7 +49,7 @@ class MoshiTest {
 
             fail("Failed to throw JsonDataException for missing 'lastName'")
         } catch (e: JsonDataException) {
-            // Successfully threw JsonDataException
+            print(e.localizedMessage)
         }
     }
 
