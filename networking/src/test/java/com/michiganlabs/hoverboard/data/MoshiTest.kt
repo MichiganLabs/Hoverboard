@@ -14,6 +14,9 @@ class MoshiTest {
 
     private val moshi = Moshi.Builder().build()
 
+    /**
+     * Verify successful dumping of object to String
+     */
     @Test
     fun dumpObjectToJsonString() {
         val testObj = Player(97, "Hutchinson")
@@ -21,6 +24,9 @@ class MoshiTest {
         assertEquals("{\"jersey\":97,\"lastName\":\"Hutchinson\"}", moshi.dump(testObj))
     }
 
+    /**
+     * Verify successful reading of JSON String into object
+     */
     @Test
     fun loadObjectFromJsonString_Success() {
         val json = "{\"jersey\":26,\"lastName\":\"Gibbs\"}"
@@ -30,6 +36,9 @@ class MoshiTest {
         assertEquals("Gibbs", obj.lastName)
     }
 
+    /**
+     * Verify [JsonDataException] is thrown when JSON String does not have valid data
+     */
     @Test
     fun loadObjectFromJsonString_Failure() {
         try {
@@ -42,12 +51,21 @@ class MoshiTest {
         }
     }
 
+    /**
+     * Verify successfully parsing a List from a JSON String
+     */
     @Test
     fun loadListOfObjectsFromJsonString() {
         val json = "[{\"jersey\":87,\"lastName\":\"LaPorta\"}, {\"jersey\":32,\"lastName\":\"Branch\"}]"
-        val players: List<Player> = moshi.load(json)
+        val players: List<Player> = moshi.load(json, Player::class.java)
 
         assertEquals(2, players.size)
+
+        assertEquals(87, players[0].jerseyNumber)
+        assertEquals("LaPorta", players[0].lastName)
+
+        assertEquals(32, players[1].jerseyNumber)
+        assertEquals("Branch", players[1].lastName)
     }
 
     @JsonClass(generateAdapter = true)
