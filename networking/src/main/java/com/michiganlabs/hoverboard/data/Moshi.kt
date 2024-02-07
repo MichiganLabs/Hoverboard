@@ -13,8 +13,8 @@ inline fun <reified T : Any> Moshi.load(json: String): T {
     return this.adapter(T::class.java).fromJson(json)!!
 }
 
-@Throws
-inline fun <reified T : Any> Moshi.load(json: String, vararg types: Type): T {
-    val adapterTypes = Types.newParameterizedType(T::class.java, *types)
-    return this.adapter<T>(adapterTypes).fromJson(json)!!
-}
+//@Throws
+//inline fun <reified T : Any> Moshi.load(json: String, vararg types: Type): T {
+//    val adapterTypes = Types.newParameterizedType(T::class.java, *types)
+//    return this.adapter<T>(adapterTypes).fromJson(json)!!
+//}
