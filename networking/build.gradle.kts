@@ -2,6 +2,7 @@ plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
     id("com.google.devtools.ksp")
+    id("maven-publish")
 }
 
 android {
@@ -29,6 +30,20 @@ android {
     }
     kotlinOptions {
         jvmTarget = libs.versions.jvmTarget.get()
+    }
+}
+
+publishing {
+    publications {
+        register<MavenPublication>("release") {
+            groupId = "com.michiganlabs.hoverboard"
+            artifactId = "networking"
+            version = "0.0.0-alpha1"
+
+            afterEvaluate {
+                from(components["release"])
+            }
+        }
     }
 }
 
