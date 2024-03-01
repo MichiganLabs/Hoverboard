@@ -45,6 +45,15 @@ publishing {
             }
         }
     }
+    repositories {
+        maven {
+            url = uri("https://maven.pkg.github.com/michiganlabs/hoverboard")
+            credentials {
+                username = ""
+                password = ""
+            }
+        }
+    }
 }
 
 dependencies {
