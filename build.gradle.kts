@@ -18,8 +18,8 @@ subprojects {
                     val gitHubHoverboardUsername: String? by project
                     val gitHubHoverboardPassword: String? by project
 
-                    username = gitHubHoverboardUsername ?: System.getenv("GITHUB_USERNAME")
-                    password = gitHubHoverboardPassword ?: System.getenv("GITHUB_TOKEN")
+                    username = gitHubHoverboardUsername ?: System.getenv("PUBLISH_USERNAME")
+                    password = gitHubHoverboardPassword ?: System.getenv("PUBLISH_TOKEN")
                 }
             }
         }
