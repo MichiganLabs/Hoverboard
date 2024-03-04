@@ -5,3 +5,23 @@ plugins {
     id("org.jetbrains.kotlin.android") version "1.9.22" apply false
     id("com.google.devtools.ksp") version "1.9.22-1.0.17" apply false
 }
+
+subprojects {
+    apply(plugin = "maven-publish")
+
+    configure<PublishingExtension> {
+        repositories {
+            maven {
+                url = uri("https://maven.pkg.github.com/michiganlabs/hoverboard")
+
+                credentials(PasswordCredentials::class) {
+                    val gitHubHoverboardUsername: String? by project
+                    val gitHubHoverboardPassword: String? by project
+
+                    username = gitHubHoverboardUsername ?: System.getenv("GITHUB_USERNAME")
+                    password = gitHubHoverboardPassword ?: System.getenv("GITHUB_TOKEN")
+                }
+            }
+        }
+    }
+}

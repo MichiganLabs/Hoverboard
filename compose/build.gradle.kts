@@ -1,17 +1,18 @@
 plugins {
-    id("com.android.library")
-    id("org.jetbrains.kotlin.android")
-    id("com.google.devtools.ksp")
+    alias(libs.plugins.androidLibrary)
+    alias(libs.plugins.jetbrainsKotlinAndroid)
+
     id("maven-publish")
 }
 
 android {
-    namespace = "com.michiganlabs.hoverboard.data"
+    namespace = "com.michiganlabs.hoverboard.compose"
     compileSdk = libs.versions.compileSdk.get().toInt()
 
     defaultConfig {
         minSdk = libs.versions.minSdk.get().toInt()
 
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
     }
 
@@ -38,7 +39,7 @@ publishing {
         register<MavenPublication>("release") {
             groupId = project.property("publishingGroupId").toString()
             version = project.property("publishingVersionNumber").toString()
-            artifactId = "networking"
+            artifactId = "compose"
 
             afterEvaluate {
                 from(components["release"])
@@ -48,8 +49,12 @@ publishing {
 }
 
 dependencies {
-    implementation(deps.moshi)
-    ksp(deps.moshi.codegen)
+    implementation(libs.androidx.navigation.compose)
 
-    testImplementation(testDeps.junit)
+    implementation(libs.androidx.core.ktx)
+    implementation(libs.androidx.appcompat)
+    implementation(libs.material)
+    testImplementation(libs.junit)
+    androidTestImplementation(libs.androidx.junit)
+    androidTestImplementation(libs.androidx.espresso.core)
 }
