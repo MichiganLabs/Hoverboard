@@ -1,4 +1,4 @@
-name: Publish Package to the Maven Central Repository
+name: Publish GitHub Packages
 on:
   release:
     types: [created]
@@ -22,3 +22,6 @@ jobs:
       
     - name: Run publish
       run: ./gradlew publish
+      env:
+          PUBLISH_USERNAME: ${{ secrets.PUBLISH_USERNAME }}
+          PUBLISH_PASSWORD: ${{ secrets.PUBLISH_TOKEN }}
