@@ -33,12 +33,21 @@ android {
     }
 }
 
+tasks.register<Zip>("generateRepo") {
+    val publishTask = tasks.named(
+        "publishReleasePublicationToMyrepoRepository",
+        PublishToMavenRepository::class.java)
+    from(publishTask.map { it.repository.url })
+    into("mylibrary")
+    archiveFileName.set("mylibrary.zip")
+}
+
 publishing {
     publications {
         register<MavenPublication>("release") {
             groupId = "com.michiganlabs.hoverboard"
             artifactId = "networking"
-            version = "0.0.0-alpha1"
+            version = "0.0.0-alpha2"
 
             afterEvaluate {
                 from(components["release"])
@@ -48,9 +57,13 @@ publishing {
     repositories {
         maven {
             url = uri("https://maven.pkg.github.com/michiganlabs/hoverboard")
-            credentials {
-                username = ""
-                password = ""
+
+            credentials(PasswordCredentials::class) {
+                val gitHubHoverboardUsername: String? by project
+                val gitHubHoverboardPassword: String? by project
+                
+                username = gitHubHoverboardUsername ?: System.getenv("GITHUB_USERNAME")
+                password = gitHubHoverboardPassword ?: System.getenv("GITHUB_TOKEN")
             }
         }
     }
