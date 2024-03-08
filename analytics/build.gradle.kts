@@ -1,18 +1,15 @@
 plugins {
     alias(libs.plugins.androidLibrary)
     alias(libs.plugins.jetbrainsKotlinAndroid)
-
-    id("maven-publish")
 }
 
 android {
-    namespace = "com.michiganlabs.hoverboard.compose"
+    namespace = "com.michiganlabs.hoverboard.analytics"
     compileSdk = libs.versions.compileSdk.get().toInt()
 
     defaultConfig {
         minSdk = libs.versions.minSdk.get().toInt()
 
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
     }
 
@@ -39,7 +36,7 @@ publishing {
         register<MavenPublication>("release") {
             groupId = project.property("publishingGroupId").toString()
             version = project.property("publishingVersionNumber").toString()
-            artifactId = "compose"
+            artifactId = "analytics"
 
             afterEvaluate {
                 from(components["release"])
@@ -49,9 +46,6 @@ publishing {
 }
 
 dependencies {
-    implementation(project(":analytics"))
-
-    implementation(libs.androidx.navigation.compose)
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
