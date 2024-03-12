@@ -1,9 +1,12 @@
 # Hoverboard
 
-Hoverboard contains basic tools, small extensions, and quality of life improvements MichiganLabs recommends for its Android projects.
+Hoverboard contains common functionality, basic extensions, and quality of life improvements that MichiganLabs recommends for its Android projects. The primary focus of this project is to improve startup time and provide consistent implementations of common actions across all projects.  
 
-To maintain a level of separation of concerns, this library is split into multiple packages with a limited focus.
 
+## Packages
+To provide for a more flexible "opt-in" approach, packages are intended to be focused to a specific area of need. Each package should aim to have the fewest number of dependencies possible to provide easier maintainability and prevent the bloating of applications that depend on the package.
+
+* [Analytics](./analytics/README.md)
 * [Compose](./compose/README.md)
 * [Networking](./networking/README.md)
 

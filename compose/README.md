@@ -1,8 +1,13 @@
 # Hoverboard Compose
 
+Hoverboard Compose provides friendly extensions and quality of life improvements to working with Compose.
+
+## Components
+* [NavHostController](./documentation/navhostcontroller.md)
+
 ## Installation
 
-Refer to the [root Installation section](../README.md) for adding GitHub packages to your project. Then add the following to your `build.gradle.kts`
+Refer to [Hoverboard Installation](../README.md) for adding GitHub packages to your project. Then add the following to your `build.gradle.kts`
 
 ```kotlin
 dependencies {

@@ -31,3 +31,4 @@ dependencyResolutionManagement {
 rootProject.name = "hoverboard"
 include(":networking")
 include(":compose")
+include(":analytics")
