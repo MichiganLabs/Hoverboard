@@ -1,6 +1,6 @@
 # Hoverboard Analytics
 
-Hoverboard Analytics provides interfaces for type safe calls to provide consistency in basic analytics across projects. In the initial state this includes logging user information and screen tracking.
+Hoverboard Analytics provides interfaces for type safe calls to provide consistency in basic analytics across projects. In the initial state this includes an interface to support standardized logging of user information and screen tracking.
 
 ## Installation
 
