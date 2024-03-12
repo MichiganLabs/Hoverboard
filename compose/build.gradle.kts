@@ -15,7 +15,12 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
     }
-
+    buildFeatures {
+        compose = true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion = "1.5.10"
+    }
     buildTypes {
         release {
             isMinifyEnabled = false
@@ -51,10 +56,17 @@ publishing {
 dependencies {
     implementation(project(":analytics"))
 
-    implementation(libs.androidx.navigation.compose)
-
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
-    implementation(libs.material)
+
+    implementation(platform(libs.androidx.compose.bom))
+    implementation(libs.androidx.compose.material3)
+    implementation(libs.androidx.compiler)
+    implementation(libs.androidx.navigation.compose)
+
     testImplementation(libs.junit)
+
+    androidTestImplementation(libs.androidx.ui.test.junit4)
+    debugImplementation(libs.androidx.ui.test.manifest)
+    androidTestImplementation(libs.androidx.navigation.testing)
 }
