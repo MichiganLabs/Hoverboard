@@ -85,3 +85,5 @@ jobs:
 
     - name: Detekt
       uses: natiginfo/action-detekt-all@1.23.5
+      with:
+        args:  --config detekt-config.yml
