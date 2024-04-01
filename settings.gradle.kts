@@ -29,6 +29,7 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "hoverboard"
+includeBuild("convention-plugins")
 include(":networking")
 include(":compose")
 include(":analytics")

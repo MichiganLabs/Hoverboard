@@ -21,6 +21,9 @@ espressoCore = "3.5.1"
 material = "1.10.0"
 
 [libraries]
+com-android-gradle-plugin = { group = "com.android.tools.build", name = "gradle", version.ref = "agp" }
+org-jetbrains-kotlin-android-gradle-plugin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version.ref = "kotlin" }
+
 androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
 androidx-compiler = { module = "androidx.compose.compiler:compiler", version.ref = "compiler" }
 androidx-compose-bom = { module = "androidx.compose:compose-bom", version.ref = "composeBom" }
@@ -40,3 +43,5 @@ material = { group = "com.google.android.material", name = "material", version.r
 [plugins]
 androidLibrary = { id = "com.android.library", version.ref = "agp" }
 jetbrainsKotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+
+com-michiganlabs-hoverboard-android-library = { id = "com.michiganlabs.hoverboard.android-library", version = "unspecified" }

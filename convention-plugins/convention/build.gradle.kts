@@ -7,18 +7,18 @@ plugins {
 group = "com.michiganlabs.hoverboard.convention-plugins"
 version = "1.0"
 
-publishing {
-    repositories {
-        maven {
-            // change to point to your repo, e.g. http://my.org/repo
-            url = uri(layout.buildDirectory.dir("repo"))
-        }
-    }
-}
-
-tasks.publish {
-    dependsOn("check")
-}
+//publishing {
+//    repositories {
+//        maven {
+//            // change to point to your repo, e.g. http://my.org/repo
+//            url = uri(layout.buildDirectory.dir("repo"))
+//        }
+//    }
+//}
+//
+//tasks.publish {
+//    dependsOn("check")
+//}
 
 kotlin {
     jvmToolchain(17)
