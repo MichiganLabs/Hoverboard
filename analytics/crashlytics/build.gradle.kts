@@ -1,6 +1,5 @@
 plugins {
     id("com.michiganlabs.hoverboard.android-library")
-    id("com.michiganlabs.hoverboard.crashlytics")
 }
 
 android {
@@ -23,4 +22,6 @@ publishing {
 
 dependencies {
     implementation(libs.timber)
+    implementation(platform(libs.firebase.bom))
+    implementation(libs.firebase.crashlytics)
 }
