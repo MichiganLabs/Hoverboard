@@ -38,7 +38,8 @@ fun org.gradle.api.Project.composeConfiguration(
 fun org.gradle.api.Project.configureKotlinAndroid(
     kotlinAndroidProjectExtension: KotlinAndroidProjectExtension
 ) {
+    val jvmToolchainVersion = libs.findVersion("jvmTarget").get().requiredVersion.toInt()
     kotlinAndroidProjectExtension.apply {
-        jvmToolchain(17)
+        jvmToolchain(jvmToolchainVersion)
     }
 }
