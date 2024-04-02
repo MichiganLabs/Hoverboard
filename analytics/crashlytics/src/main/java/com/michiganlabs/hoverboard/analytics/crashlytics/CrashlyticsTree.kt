@@ -28,7 +28,7 @@ class CrashlyticsTree : Timber.Tree() {
         fc.log("$prefix: $message")
 
         if (t != null) {
-            fc.recordException(t) // test comment
+            fc.recordException(t)
         }
     }
 }
