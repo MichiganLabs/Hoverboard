@@ -1,9 +1,9 @@
 plugins {
-    alias(libs.plugins.com.michiganlabs.hoverboard.android.library)
+    id("com.michiganlabs.hoverboard.android-library")
 }
 
 android {
-    namespace = "com.michiganlabs.hoverboard.analytics"
+    namespace = "com.michiganlabs.hoverboard.analytics.crashlytics"
 }
 
 publishing {
@@ -11,7 +11,7 @@ publishing {
         register<MavenPublication>("release") {
             groupId = project.property("publishingGroupId").toString()
             version = project.property("publishingVersionNumber").toString()
-            artifactId = "analytics"
+            artifactId = "analytics-crashlytics"
 
             afterEvaluate {
                 from(components["release"])
@@ -21,8 +21,7 @@ publishing {
 }
 
 dependencies {
-    implementation(libs.androidx.core.ktx)
-    implementation(libs.androidx.appcompat)
-
-    testImplementation(libs.junit)
+    implementation(libs.timber)
+    implementation(platform(libs.firebase.bom))
+    implementation(libs.firebase.crashlytics)
 }
