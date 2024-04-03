@@ -7,6 +7,7 @@ Hoverboard contains common functionality, basic extensions, and quality of life 
 To provide for a more flexible "opt-in" approach, packages are intended to be focused to a specific area of need. Each package should aim to have the fewest number of dependencies possible to provide easier maintainability and prevent the bloating of applications that depend on the package.
 
 * [Analytics](./analytics/README.md)
+  * [Firebase](./analytics/firebase/README.md)
 * [Compose](./compose/README.md)
 * [Networking](./networking/README.md)
 

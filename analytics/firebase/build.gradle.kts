@@ -3,7 +3,7 @@ plugins {
 }
 
 android {
-    namespace = "com.michiganlabs.hoverboard.analytics.crashlytics"
+    namespace = "com.michiganlabs.hoverboard.analytics.firebase"
 }
 
 publishing {
@@ -11,7 +11,7 @@ publishing {
         register<MavenPublication>("release") {
             groupId = project.property("publishingGroupId").toString()
             version = project.property("publishingVersionNumber").toString()
-            artifactId = "analytics-crashlytics"
+            artifactId = "analytics-firebase"
 
             afterEvaluate {
                 from(components["release"])

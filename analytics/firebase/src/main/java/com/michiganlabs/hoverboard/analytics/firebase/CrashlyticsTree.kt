@@ -1,4 +1,4 @@
-package com.michiganlabs.hoverboard.analytics.crashlytics
+package com.michiganlabs.hoverboard.analytics.firebase
 
 
 import android.util.Log
