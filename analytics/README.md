@@ -2,6 +2,9 @@
 
 Hoverboard Analytics provides interfaces for type safe calls to provide consistency in basic analytics across projects. In the initial state this includes an interface to support standardized logging of user information and screen tracking.
 
+## Implementations
+* [Firebase](./firebase/README.md)
+
 ## Installation
 
 Refer to [Hoverboard Installation](../README.md) for adding GitHub packages to your project. Then add the following to your `build.gradle.kts`
